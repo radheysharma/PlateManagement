@@ -11,10 +11,6 @@ It supports operations like registration, lookup, removal, range search, and rev
 Each broomstick must have a **4-character license plate**, where each character is either a capital letter (`A–Z`) or a digit (`0–9`).  
 The system allows both **customized** and **randomly generated** license plates, maintaining them in lexicographical order using a Red-Black Tree for efficient insertion, deletion, and lookup.
 
-Annual fees:
-- Standard registration: **4 Galleons/year**
-- Custom plate surcharge: **+3 Galleons/year**
-
 ---
 
 ## ⚙️ Features
@@ -59,12 +55,10 @@ Annual fees:
 
 ```
 📦 FlyingBroomstickManagement
- ┣ 📜 plateMgmt.cpp
  ┣ 📜 Makefile
- ┣ 📜 README.md
- ┣ 📜 ProjectReport.pdf
- ┣ 📜 input_sample.txt
- ┗ 📜 output_sample.txt
+ ┣ 📜 main.cpp
+ ┣ 📜 rbt.cpp
+ ┣ 📜 rbt.h
 ```
 
 ---
@@ -85,7 +79,7 @@ Run the program with an input file:
 ```
 The program will read commands from `input.txt` and write results to:
 ```
-input_output.txt
+input-output.txt
 ```
 
 ### 🧹 Clean Build Files
@@ -96,35 +90,71 @@ make clean
 
 ---
 
-## 📄 Example Input
+## 📄 Example Input 1
 
 ```
-addLicence(AB12)
 addLicence()
-lookupLicence(AB12)
-lookupPrev(AB12)
-lookupRange(00AA, ZZ99)
+addLicence()
+addLicence()
 revenue()
 quit()
 ```
 
-### Example Output
+### Example Output 1
 
 ```
-AB12 registered successfully.
-Q9L3 created and registered successfully.
-AB12 exists.
-AB12’s prev is 009Z.
-plate numbers between 00AA and ZZ99: 009Z, AB12, Q9L3.
-Current annual revenue is 11 Galleons.
+<random_plate_num> created and registered successfully.
+<random_plate_num> created and registered successfully.
+<random_plate_num> created and registered successfully.
+Current annual revenue is 12 Galleons.
+```
+
+## 📄 Example Input 2
+
+```
+addLicence(1111)
+addLicence(2222)
+addLicence(3333)
+addLicence(AAAA)
+addLicence(4444)
+addLicence(3333)
+dropLicence(4444)
+dropLicence(1234)
+lookupLicence(2222)
+lookupLicence(1234)
+lookupLicence(4444)
+lookupPrev(2222)
+lookupNext(3333)
+lookupRange(1234, 3333)
+revenue()
+quit()
+```
+
+### Example Output 2
+
+```
+1111 registered successfully.
+2222 registered successfully.
+3333 registered successfully.
+AAAA registered successfully.
+4444 registered successfully.
+Failed to register 3333: already exists.
+4444 removed successfully.
+Failed to remove 1234: does not exist.
+2222 exists.
+1234 does not exist.
+4444 does not exist.
+2222’s prev is 1111.
+3333’s next is AAAA.
+Plate numbers between 1234 and 3333: 2222, 3333.
+current annual revenue is 28 Galleons.
 ```
 
 ---
 
 ## 🧑‍💻 Author
 
-**Name:** `<NAME>`  
-**UFID:** `<UFID>`  
+**Name:** `Radhey Sharma`    
 **Course:** COP5536 – Data Structures and Algorithms  
 **Semester:** Spring 2025  
 
