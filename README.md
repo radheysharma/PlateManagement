@@ -41,7 +41,7 @@ The system allows both **customized** and **randomly generated** license plates,
   - Input commands are read from a text file.  
   - Output is written to a file named:  
     ```
-    <inputFileName>_output.txt
+    <inputFileName>-output.txt
     ```
 - **Design Highlights:**
   - Node structure stores plate number and color (RED/BLACK).
@@ -166,7 +166,3 @@ This project was developed as part of the **COP5536 Programming Project** at the
 Special thanks to the course staff for providing the problem specification and grading guidelines.
 
 ---
-
-## 📜 License
-
-This project is released for academic and educational use only. Redistribution or plagiarism is strictly prohibited.
